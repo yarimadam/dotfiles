@@ -1,0 +1,10 @@
+remove-dangling-images() {
+    IMAGES=$(docker images --quiet --filter "dangling=true")
+
+    if [ -z "${IMAGES}" ]
+    then
+        echo "NO DANGLING IMAGES"
+    else
+        docker rmi -f ${IMAGES}
+    fi
+}
