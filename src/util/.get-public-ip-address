@@ -1,0 +1,5 @@
+get-public-ip-address() {
+	curl http://ipinfo.io/ip
+}
+
+export -f get-public-ip-address;
