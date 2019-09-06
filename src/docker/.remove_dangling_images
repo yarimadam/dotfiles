@@ -1,4 +1,4 @@
-remove-dangling-images() {
+remove_dangling_images() {
     IMAGES=$(docker images --quiet --filter "dangling=true")
 
     if [ -z "${IMAGES}" ]
@@ -8,3 +8,5 @@ remove-dangling-images() {
         docker rmi -f ${IMAGES}
     fi
 }
+
+export -f remove_dangling_images;
