@@ -3,7 +3,7 @@ goinside(){
 }
 
 _goinside(){
-    COMPREPLY=( $(docker ps --format "{{.Names}}") );
+    COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
 }
 
 complete -F _goinside goinside;
