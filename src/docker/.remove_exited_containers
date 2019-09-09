@@ -1,0 +1,12 @@
+remove_exited_containers() {
+    CONTAINERS=$(docker ps --quiet --filter status=exited)
+
+    if [ -z "${CONTAINERS}" ]
+    then
+        echo "NO EXITED CONTAINERS"
+    else
+        docker rm -f ${CONTAINERS}
+    fi
+}
+
+export -f remove_exited_containers;
